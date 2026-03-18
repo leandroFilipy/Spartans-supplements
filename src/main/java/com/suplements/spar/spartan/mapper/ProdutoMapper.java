@@ -1,9 +1,8 @@
 package com.suplements.spar.spartan.mapper;
 
-import com.suplements.spar.spartan.dto.ProdutoRequest;
-import com.suplements.spar.spartan.dto.ProdutoResponse;
+import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
+import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
 import com.suplements.spar.spartan.model.Produto;
-import jakarta.persistence.Entity;
 import org.springframework.stereotype.Component;
 
 @Component

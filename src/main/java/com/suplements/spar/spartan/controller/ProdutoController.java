@@ -1,7 +1,7 @@
 package com.suplements.spar.spartan.controller;
 
-import com.suplements.spar.spartan.dto.ProdutoRequest;
-import com.suplements.spar.spartan.dto.ProdutoResponse;
+import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
+import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
 import com.suplements.spar.spartan.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/products")
 @RequiredArgsConstructor
 public class ProdutoController {
 
-    private ProdutoService produtoService;
+    private final ProdutoService produtoService;
 
     @PostMapping("/register")
     public ProdutoResponse create(@RequestBody ProdutoRequest produtoRequest){

@@ -1,4 +1,4 @@
-package com.suplements.spar.spartan.dto;
+package com.suplements.spar.spartan.dto.produto;
 
 public record ProdutoResponse(
         long id,

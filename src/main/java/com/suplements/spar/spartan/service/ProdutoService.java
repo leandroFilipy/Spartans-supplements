@@ -1,7 +1,7 @@
 package com.suplements.spar.spartan.service;
 
-import com.suplements.spar.spartan.dto.ProdutoRequest;
-import com.suplements.spar.spartan.dto.ProdutoResponse;
+import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
+import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
 import com.suplements.spar.spartan.mapper.ProdutoMapper;
 import com.suplements.spar.spartan.model.Produto;
 import com.suplements.spar.spartan.repository.ProdutoRepository;
@@ -49,14 +49,17 @@ public class ProdutoService {
     public ProdutoResponse update(long id, ProdutoRequest produtoRequest){
 
         Produto produto = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("There is no product with this ID"));
-        produto.setNome(produto.getNome());
-        produto.setPreco(produto.getPreco());
-        produto.setDescricao(produto.getDescricao());
-        produto.setPeso(produto.getPeso());
-        produto.setCategoria(produto.getCategoria());
-        produto.setImagemUrl(produto.getImagemUrl());
-        produto.setQuantidadeEstoque(produto.getQuantidadeEstoque());
-        ProdutoResponse produtoResponse = produtoMapper.toResponse(produto);
+        produto.setNome(produtoRequest.nome());
+        produto.setPreco(produtoRequest.preco());
+        produto.setDescricao(produtoRequest.descricao());
+        produto.setPeso(produtoRequest.peso());
+        produto.setCategoria(produtoRequest.categoria());
+        produto.setImagemUrl(produtoRequest.imagemUrl());
+        produto.setQuantidadeEstoque(produtoRequest.quantidadeEstoque());
+
+        Produto produtoSalvo = produtoRepository.save(produto);
+
+        ProdutoResponse produtoResponse = produtoMapper.toResponse(produtoSalvo);
 
         return produtoResponse;
     }
