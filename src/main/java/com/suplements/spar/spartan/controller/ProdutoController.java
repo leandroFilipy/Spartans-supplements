@@ -3,6 +3,7 @@ package com.suplements.spar.spartan.controller;
 import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
 import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
 import com.suplements.spar.spartan.service.ProdutoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class ProdutoController {
     private final ProdutoService produtoService;
 
     @PostMapping("/register")
-    public ProdutoResponse create(@RequestBody ProdutoRequest produtoRequest){
+    public ProdutoResponse create(@Valid @RequestBody ProdutoRequest produtoRequest){
         try{
             return produtoService.create(produtoRequest);
         }catch (RuntimeException e){
@@ -44,7 +45,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/update/{id}")
-    public ProdutoResponse update (@PathVariable long id, @RequestBody ProdutoRequest produtoRequest){
+    public ProdutoResponse update (@Valid @PathVariable long id, @RequestBody ProdutoRequest produtoRequest){
         try{
            return produtoService.update(id, produtoRequest);
         }catch (RuntimeException e){
