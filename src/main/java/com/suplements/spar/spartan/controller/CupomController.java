@@ -1,8 +1,9 @@
 package com.suplements.spar.spartan.controller;
 
-import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
-import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
-import com.suplements.spar.spartan.service.ProdutoService;
+import com.suplements.spar.spartan.dto.cupom.CupomRequest;
+import com.suplements.spar.spartan.dto.cupom.CupomResponse;
+import com.suplements.spar.spartan.model.Cupom;
+import com.suplements.spar.spartan.service.CupomService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -10,44 +11,44 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/coupon")
 @RequiredArgsConstructor
-public class ProdutoController {
+public class CupomController {
 
-    private final ProdutoService produtoService;
+    private final CupomService cupomService;
+
 
     @PostMapping("/register")
-    public ProdutoResponse create(@Valid @RequestBody ProdutoRequest produtoRequest){
+    public CupomResponse create(@Valid @RequestBody CupomRequest cupomRequest){
         try{
-            return produtoService.create(produtoRequest);
+            return cupomService.create(cupomRequest);
         }catch (RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
     }
 
     @GetMapping("/list")
-    public List<ProdutoResponse> list (){
+    public List<CupomResponse> list(){
         try{
-            return produtoService.list();
+            return cupomService.list();
         }catch (RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
     }
 
-
     @GetMapping("/list/{id}")
-    public ProdutoResponse listById(@PathVariable long id){
+    public CupomResponse listById(@PathVariable long id){
         try{
-            return produtoService.listById(id);
+            return cupomService.listById(id);
         }catch (RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
     }
 
     @PutMapping("/update/{id}")
-    public ProdutoResponse update (@Valid @PathVariable long id, @RequestBody ProdutoRequest produtoRequest){
+    public CupomResponse update (@Valid @PathVariable long id, @RequestBody CupomRequest cupomRequest){
         try{
-           return produtoService.update(id, produtoRequest);
+            return cupomService.update(id, cupomRequest);
         }catch (RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
@@ -56,7 +57,7 @@ public class ProdutoController {
     @DeleteMapping("/delete/{id}")
     public void delete (@PathVariable long id){
         try{
-            produtoService.delete(id);
+            cupomService.delete(id);
         }catch (RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
