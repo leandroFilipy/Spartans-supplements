@@ -11,7 +11,7 @@ public record UsuarioResponse(
         String password,
         String telefone,
         String endereco,
-        String cpf
-
+        String cpf,
+        LocalDate dataNascimento
 ) {
 }
