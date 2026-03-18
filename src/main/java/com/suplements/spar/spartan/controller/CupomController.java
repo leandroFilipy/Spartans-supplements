@@ -4,6 +4,7 @@ import com.suplements.spar.spartan.dto.cupom.CupomRequest;
 import com.suplements.spar.spartan.dto.cupom.CupomResponse;
 import com.suplements.spar.spartan.model.Cupom;
 import com.suplements.spar.spartan.service.CupomService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class CupomController {
 
 
     @PostMapping("/register")
-    public CupomResponse create (@RequestBody CupomRequest cupomRequest){
+    public CupomResponse create(@Valid @RequestBody CupomRequest cupomRequest){
         try{
             return cupomService.create(cupomRequest);
         }catch (RuntimeException e){
@@ -45,7 +46,7 @@ public class CupomController {
     }
 
     @PutMapping("/update/{id}")
-    public CupomResponse update (@PathVariable long id, @RequestBody CupomRequest cupomRequest){
+    public CupomResponse update (@Valid @PathVariable long id, @RequestBody CupomRequest cupomRequest){
         try{
             return cupomService.update(id, cupomRequest);
         }catch (RuntimeException e){
