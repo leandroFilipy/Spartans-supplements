@@ -12,7 +12,7 @@ public record CupomRequest (
        @Positive(message = "The discount must be positive")
        @Max(99)
        @Min(1)
-       @NotBlank(message = "The discount must not be empty")
+       @NotNull(message = "The discount must not be empty")
        double porcentagemDesconto,
        boolean ativo
 ){
