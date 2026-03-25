@@ -1,4 +1,4 @@
-package com.suplements.spar.spartan.mapper;
+package com.suplements.spar.spartan.mapper.produto;
 
 import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
 import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
@@ -6,8 +6,9 @@ import com.suplements.spar.spartan.model.Produto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProdutoMapper {
+public class ProdutoMapper implements IProdutoMapper{
 
+    @Override
     public Produto toEntity(ProdutoRequest produtoRequest){
 
         return new Produto(produtoRequest.nome(),
@@ -20,6 +21,7 @@ public class ProdutoMapper {
         );
     }
 
+    @Override
     public ProdutoResponse toResponse(Produto produto){
 
         return new ProdutoResponse(

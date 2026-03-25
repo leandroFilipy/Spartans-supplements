@@ -1,4 +1,4 @@
-package com.suplements.spar.spartan.mapper;
+package com.suplements.spar.spartan.mapper.usuarioMapper;
 
 import com.suplements.spar.spartan.dto.Usuario.UsuarioRequest;
 import com.suplements.spar.spartan.dto.Usuario.UsuarioResponse;
@@ -6,8 +6,9 @@ import com.suplements.spar.spartan.model.Usuario;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UsuarioMapper {
+public class UsuarioMapper implements IUsuarioMapper{
 
+    @Override
     public Usuario toEntity(UsuarioRequest dto){
         return new Usuario(
                 dto.nome(),
@@ -20,6 +21,7 @@ public class UsuarioMapper {
         );
     }
 
+    @Override
     public UsuarioResponse toResponse(Usuario user){
         return new UsuarioResponse(
                 user.getId(),
