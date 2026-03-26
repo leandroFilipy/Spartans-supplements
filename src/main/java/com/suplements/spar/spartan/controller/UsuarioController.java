@@ -36,7 +36,7 @@ public class UsuarioController {
         iUsuarioService.delete(id);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public boolean userExists(@RequestBody UsuarioLoginRequest usuarioLoginRequest) {
         return iUsuarioService.userExistsByEmailAndPassword(usuarioLoginRequest);
     }
