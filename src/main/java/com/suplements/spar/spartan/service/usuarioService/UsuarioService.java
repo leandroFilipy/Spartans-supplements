@@ -1,8 +1,8 @@
-package com.suplements.spar.spartan.service;
+package com.suplements.spar.spartan.service.usuarioService;
 
 import com.suplements.spar.spartan.dto.Usuario.UsuarioRequest;
 import com.suplements.spar.spartan.dto.Usuario.UsuarioResponse;
-import com.suplements.spar.spartan.mapper.UsuarioMapper;
+import com.suplements.spar.spartan.mapper.usuarioMapper.IUsuarioMapper;
 import com.suplements.spar.spartan.model.Usuario;
 import com.suplements.spar.spartan.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,20 +10,23 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UsuarioService {
+public class UsuarioService implements IUsuarioService{
 
     private final UsuarioRepository repository;
-    private final UsuarioMapper mapper;
+    private final IUsuarioMapper iUsuarioMapper;
 
+    @Override
     public UsuarioResponse create(UsuarioRequest dto){
-        Usuario user = mapper.toEntity(dto);
-        return mapper.toResponse(repository.save(user));
+        Usuario user = iUsuarioMapper.toEntity(dto);
+        return iUsuarioMapper.toResponse(repository.save(user));
     }
 
+    @Override
     public UsuarioResponse listById(long id){
-        return mapper.toResponse(repository.findById(id).orElseThrow(() -> new RuntimeException("Id invalido!")));
+        return iUsuarioMapper.toResponse(repository.findById(id).orElseThrow(() -> new RuntimeException("Id invalido!")));
     }
 
+    @Override
     public UsuarioResponse update(long id, UsuarioRequest dto){
         Usuario user = repository.findById(id).orElseThrow(() -> new RuntimeException("Id invalido!"));
 
@@ -35,12 +38,12 @@ public class UsuarioService {
         user.setCpf(dto.cpf());
         user.setDataNascimento(dto.dataNascimento());
 
-        return mapper.toResponse(repository.save(user));
+        return iUsuarioMapper.toResponse(repository.save(user));
     }
 
-    public String delete(long id){
+    @Override
+    public void delete(long id){
         Usuario user = repository.findById(id).orElseThrow(() -> new RuntimeException("Id invalido!"));
         repository.delete(user);
-        return "Usuario deletado com sucesso!";
     }
 }

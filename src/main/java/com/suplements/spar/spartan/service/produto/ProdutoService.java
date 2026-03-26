@@ -1,8 +1,9 @@
-package com.suplements.spar.spartan.service;
+package com.suplements.spar.spartan.service.produto;
 
 import com.suplements.spar.spartan.dto.produto.ProdutoRequest;
 import com.suplements.spar.spartan.dto.produto.ProdutoResponse;
-import com.suplements.spar.spartan.mapper.ProdutoMapper;
+import com.suplements.spar.spartan.mapper.produto.IProdutoMapper;
+import com.suplements.spar.spartan.mapper.produto.ProdutoMapper;
 import com.suplements.spar.spartan.model.Produto;
 import com.suplements.spar.spartan.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,17 +14,17 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ProdutoService {
+public class ProdutoService implements IProdutoService{
 
     private final ProdutoRepository produtoRepository;
-    private final ProdutoMapper produtoMapper;
+    private final IProdutoMapper iProdutoMapper;
 
 
     public ProdutoResponse create(ProdutoRequest produtoRequest){
 
-        Produto produto = produtoMapper.toEntity(produtoRequest);
+        Produto produto = iProdutoMapper.toEntity(produtoRequest);
         Produto produtoSalvo = produtoRepository.save(produto);
-        ProdutoResponse produtoResponse = produtoMapper.toResponse(produtoSalvo);
+        ProdutoResponse produtoResponse = iProdutoMapper.toResponse(produtoSalvo);
 
         return produtoResponse;
     }
@@ -33,7 +34,7 @@ public class ProdutoService {
         List<ProdutoResponse> dtos = new ArrayList<>();
 
         for (Produto p : produtos){
-            dtos.add(produtoMapper.toResponse(p));
+            dtos.add(iProdutoMapper.toResponse(p));
         }
 
         return dtos;
@@ -41,7 +42,7 @@ public class ProdutoService {
 
     public ProdutoResponse listById(long id){
         Produto produto = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("There is no product with this ID"));
-        ProdutoResponse produtoResponse = produtoMapper.toResponse(produto);
+        ProdutoResponse produtoResponse = iProdutoMapper.toResponse(produto);
 
         return produtoResponse;
     }
@@ -59,7 +60,7 @@ public class ProdutoService {
 
         Produto produtoSalvo = produtoRepository.save(produto);
 
-        ProdutoResponse produtoResponse = produtoMapper.toResponse(produtoSalvo);
+        ProdutoResponse produtoResponse = iProdutoMapper.toResponse(produtoSalvo);
 
         return produtoResponse;
     }
