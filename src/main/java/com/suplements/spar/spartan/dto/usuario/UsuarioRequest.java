@@ -1,4 +1,4 @@
-package com.suplements.spar.spartan.dto.Usuario;
+package com.suplements.spar.spartan.dto.usuario;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
