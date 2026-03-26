@@ -34,4 +34,10 @@ public class UsuarioController {
     public void delete(@PathVariable long id){
         iUsuarioService.delete(id);
     }
+
+    @GetMapping("/login/{email}/{senha}")
+    public boolean userExists(@PathVariable String email, @PathVariable String senha){
+        return iUsuarioService.userExistsByEmailAndPassword(email, senha);
+    }
+
 }
