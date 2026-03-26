@@ -1,5 +1,7 @@
 package com.suplements.spar.spartan.service.usuarioService;
 
+import com.suplements.spar.spartan.dto.Usuario.UsuarioLoginRequest;
+import com.suplements.spar.spartan.dto.Usuario.UsuarioLoginResponse;
 import com.suplements.spar.spartan.dto.Usuario.UsuarioRequest;
 import com.suplements.spar.spartan.dto.Usuario.UsuarioResponse;
 import com.suplements.spar.spartan.mapper.usuarioMapper.IUsuarioMapper;
@@ -49,9 +51,9 @@ public class UsuarioService implements IUsuarioService{
 
 
     @Override
-    public boolean userExistsByEmailAndPassword(String email, String senha){
+    public boolean userExistsByEmailAndPassword(UsuarioLoginRequest usuarioLoginRequest){
 
-        if(repository.existsByEmailAndPassword(email, senha)){
+        if(repository.existsByEmailAndPassword(usuarioLoginRequest.email(), usuarioLoginRequest.password())){
             return true;
         }else {
             return false;
