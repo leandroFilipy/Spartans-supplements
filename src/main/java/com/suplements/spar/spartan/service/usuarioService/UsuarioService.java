@@ -46,4 +46,15 @@ public class UsuarioService implements IUsuarioService{
         Usuario user = repository.findById(id).orElseThrow(() -> new RuntimeException("Id invalido!"));
         repository.delete(user);
     }
+
+
+    @Override
+    public boolean userExistsByEmailAndPassword(String email, String senha){
+
+        if(repository.existsByEmailAndPassword(email, senha)){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
