@@ -1,6 +1,4 @@
-package com.suplements.spar.spartan.dto.Usuario;
-
-import jakarta.persistence.Column;
+package com.suplements.spar.spartan.dto.usuario;
 
 import java.time.LocalDate;
 

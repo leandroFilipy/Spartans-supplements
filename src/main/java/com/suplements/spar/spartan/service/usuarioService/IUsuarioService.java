@@ -1,8 +1,8 @@
 package com.suplements.spar.spartan.service.usuarioService;
 
-import com.suplements.spar.spartan.dto.Usuario.UsuarioRequest;
-import com.suplements.spar.spartan.dto.Usuario.UsuarioResponse;
-import com.suplements.spar.spartan.model.Usuario;
+import com.suplements.spar.spartan.dto.usuario.UsuarioLoginRequest;
+import com.suplements.spar.spartan.dto.usuario.UsuarioRequest;
+import com.suplements.spar.spartan.dto.usuario.UsuarioResponse;
 
 public interface IUsuarioService {
 
@@ -10,5 +10,5 @@ public interface IUsuarioService {
     UsuarioResponse listById(long id);
     UsuarioResponse update(long id, UsuarioRequest usuarioRequest);
     void delete(long id);
-    boolean userExistsByEmailAndPassword(String email, String password);
+    boolean userExistsByEmailAndPassword(UsuarioLoginRequest usuarioLoginRequest);
 }
