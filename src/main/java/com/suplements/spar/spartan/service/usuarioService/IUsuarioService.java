@@ -10,4 +10,5 @@ public interface IUsuarioService {
     UsuarioResponse listById(long id);
     UsuarioResponse update(long id, UsuarioRequest usuarioRequest);
     void delete(long id);
+    boolean userExistsByEmailAndPassword(String email, String password);
 }
