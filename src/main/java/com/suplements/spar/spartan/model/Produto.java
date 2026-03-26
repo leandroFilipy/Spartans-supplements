@@ -38,13 +38,13 @@ public class Produto {
 
     private int quantidadeEstoque;
 
-    public Produto(String nome, double preco, String descricao, double peso, String categoria, String imagemUrl, int quantidadeEstoque) {
-        this.nome = nome;
-        this.preco = preco;
-        this.descricao = descricao;
-        this.peso = peso;
-        this.categoria = categoria;
-        this.imagemUrl = imagemUrl;
-        this.quantidadeEstoque = quantidadeEstoque;
-    }
+    @Column(nullable = false)
+    private double calorias;
+
+    @Column(nullable = false)
+    private double proteinas;
+
+    @Column(nullable = false)
+    private double carboidratos;
+
 }

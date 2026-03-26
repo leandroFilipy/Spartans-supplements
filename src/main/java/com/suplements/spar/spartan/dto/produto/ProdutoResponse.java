@@ -8,6 +8,9 @@ public record ProdutoResponse(
         double peso,
         String categoria,
         String imagemUrl,
-        int quantidadeEstoque
+        int quantidadeEstoque,
+        double calorias,
+        double proteinas,
+        double carboidratos
 ) {
 }
