@@ -20,7 +20,7 @@ public class UsuarioController {
         return iUsuarioService.listById(id);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registe")
     public UsuarioResponse create (@Valid @RequestBody UsuarioRequest dto){
         return iUsuarioService.create(dto);
     }
