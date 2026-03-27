@@ -17,7 +17,10 @@ public class ProdutoMapper implements IProdutoMapper{
                 produtoRequest.peso(),
                 produtoRequest.categoria(),
                 produtoRequest.imagemUrl(),
-                produtoRequest.quantidadeEstoque()
+                produtoRequest.quantidadeEstoque(),
+                produtoRequest.calorias(),
+                produtoRequest.proteinas(),
+                produtoRequest.carboidratos()
         );
     }
 
@@ -32,7 +35,10 @@ public class ProdutoMapper implements IProdutoMapper{
                 produto.getPeso(),
                 produto.getCategoria(),
                 produto.getImagemUrl(),
-                produto.getQuantidadeEstoque()
+                produto.getQuantidadeEstoque(),
+                produto.getCalorias(),
+                produto.getProteinas(),
+                produto.getCarboidratos()
         );
     }
 }
