@@ -47,4 +47,16 @@ public class Produto {
     @Column(nullable = false)
     private double carboidratos;
 
+    public Produto(String nome, double preco, String descricao, double peso, String categoria, String imagemUrl, int quantidadeEstoque, double calorias, double proteinas, double carboidratos) {
+        this.nome = nome;
+        this.preco = preco;
+        this.descricao = descricao;
+        this.peso = peso;
+        this.categoria = categoria;
+        this.imagemUrl = imagemUrl;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.calorias = calorias;
+        this.proteinas = proteinas;
+        this.carboidratos = carboidratos;
+    }
 }
