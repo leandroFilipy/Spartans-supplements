@@ -19,47 +19,27 @@ public class CupomController {
 
     @PostMapping("/register")
     public CupomResponse create(@Valid @RequestBody CupomRequest cupomRequest){
-        try{
             return cupomService.create(cupomRequest);
-        }catch (RuntimeException e){
-            throw new RuntimeException(e.getMessage());
-        }
     }
 
     @GetMapping("/list")
     public List<CupomResponse> list(){
-        try{
             return cupomService.list();
-        }catch (RuntimeException e){
-            throw new RuntimeException(e.getMessage());
-        }
     }
 
     @GetMapping("/list/{id}")
     public CupomResponse listById(@PathVariable long id){
-        try{
             return cupomService.listById(id);
-        }catch (RuntimeException e){
-            throw new RuntimeException(e.getMessage());
-        }
     }
 
     @PutMapping("/update/{id}")
     public CupomResponse update (@Valid @PathVariable long id, @RequestBody CupomRequest cupomRequest){
-        try{
             return cupomService.update(id, cupomRequest);
-        }catch (RuntimeException e){
-            throw new RuntimeException(e.getMessage());
-        }
     }
 
     @DeleteMapping("/delete/{id}")
     public void delete (@PathVariable long id){
-        try{
             cupomService.delete(id);
-        }catch (RuntimeException e){
-            throw new RuntimeException(e.getMessage());
-        }
     }
 
 }
