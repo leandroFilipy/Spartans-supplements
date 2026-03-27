@@ -1,5 +1,6 @@
 package com.suplements.spar.spartan.dto.produto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -24,7 +25,10 @@ public record ProdutoRequest (
         String imagemUrl,
 
         @PositiveOrZero(message = "The stock must be posive or zero")
-        int quantidadeEstoque
+        int quantidadeEstoque,
+        double calorias,
+        double proteinas,
+        double carboidratos
 
 ){
 }

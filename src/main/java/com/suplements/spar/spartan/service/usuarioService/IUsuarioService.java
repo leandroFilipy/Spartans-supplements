@@ -1,9 +1,8 @@
 package com.suplements.spar.spartan.service.usuarioService;
 
-import com.suplements.spar.spartan.dto.Usuario.UsuarioLoginRequest;
-import com.suplements.spar.spartan.dto.Usuario.UsuarioRequest;
-import com.suplements.spar.spartan.dto.Usuario.UsuarioResponse;
-import com.suplements.spar.spartan.model.Usuario;
+import com.suplements.spar.spartan.dto.usuario.UsuarioLoginRequest;
+import com.suplements.spar.spartan.dto.usuario.UsuarioRequest;
+import com.suplements.spar.spartan.dto.usuario.UsuarioResponse;
 
 public interface IUsuarioService {
 

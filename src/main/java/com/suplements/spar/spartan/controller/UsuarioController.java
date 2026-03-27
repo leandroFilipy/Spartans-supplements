@@ -1,10 +1,9 @@
 package com.suplements.spar.spartan.controller;
 
-import com.suplements.spar.spartan.dto.Usuario.UsuarioLoginRequest;
-import com.suplements.spar.spartan.dto.Usuario.UsuarioRequest;
-import com.suplements.spar.spartan.dto.Usuario.UsuarioResponse;
+import com.suplements.spar.spartan.dto.usuario.UsuarioLoginRequest;
+import com.suplements.spar.spartan.dto.usuario.UsuarioRequest;
+import com.suplements.spar.spartan.dto.usuario.UsuarioResponse;
 import com.suplements.spar.spartan.service.usuarioService.IUsuarioService;
-import com.suplements.spar.spartan.service.usuarioService.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
